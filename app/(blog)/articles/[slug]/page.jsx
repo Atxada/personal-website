@@ -10,7 +10,6 @@ export const generateStaticParams = () => { // generate params at build time rat
     return paths;
 }
 
-
 const page = ({params}) => {
   return (
     <Blog params={params}/>

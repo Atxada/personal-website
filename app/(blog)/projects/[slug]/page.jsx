@@ -1,6 +1,7 @@
 import React from 'react'
 import Blog from '@components/Blog';
 import { slug } from '@node_modules/github-slugger';
+import { getAllPosts } from '@utils/posts';
 
 export const generateStaticParams = () => { // generate params at build time rather than on click
     const posts = getAllPosts();
