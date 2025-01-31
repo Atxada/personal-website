@@ -6,7 +6,7 @@ import { getAllPosts } from '@utils/posts';
 export const generateStaticParams = () => { // generate params at build time rather than on click
     const posts = getAllPosts();
     const articlePosts = posts.filter((post) => post.category === "projects")
-    const paths = Object.values(articlePosts).map(path => ({path: slug(path.slug)}));
+    const paths = Object.values(articlePosts).map(path => ({slug: slug(path.slug)}));
     return paths;
 }
 

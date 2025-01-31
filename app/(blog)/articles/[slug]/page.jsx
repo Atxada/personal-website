@@ -6,7 +6,7 @@ import { slug } from '@node_modules/github-slugger';
 export const generateStaticParams = () => { // generate params at build time rather than on click
     const posts = getAllPosts();
     const articlePosts = posts.filter((post) => post.category === "articles")
-    const paths = Object.keys(articlePosts).map(path => ({path: slug(path.slug)}));
+    const paths = Object.values(articlePosts).map(path => ({slug: slug(path.slug)}));
     return paths;
 }
 
