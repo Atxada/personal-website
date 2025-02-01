@@ -10,13 +10,13 @@ const Home = () => {
             <div className="home-h-flex">
               <section className="home-v-flex">
                 <h1>Currently Solving <span>Technical Art</span></h1>
-                <p className="text-[#bcbcbc] leading-6"> 
+                <p className="text-[#bcbcbc] leading-6 m-0"> 
                   Hi! My name is <strong>Aldo Aldrich</strong>, I'm a <span className="text-[#2f8ce3] text-lg">Technical artist</span> who specializes 
                   in <span className="text-[#e3742f] text-lg">Rigging</span> from Indonesia. Since 2022, I've been making a various types of rigging, 
                   create a custom tools using Python, and help solving technical problem in the studio.
                 </p>
                 <nav>
-                  <ul className="flex gap-3">    
+                  <ul className="flex gap-3 my-5">    
                     <li>
                         <Link className="home-nav-btn" href="/projects">
                             <CubeIcon /> Portofolio
