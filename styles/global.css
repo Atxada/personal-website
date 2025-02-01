@@ -719,6 +719,12 @@ hr {
     font-size: .7rem;
   }
   .blog-title{
-    font-size: 1.8rem;
+    font-size: 1.8em;
+  }
+  .blog-content p{
+    font-size: .85em;
+  }
+  .blog-content pre code{ 
+    font-size: .85em;
   }
 }
