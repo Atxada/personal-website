@@ -582,13 +582,14 @@ hr {
   .posts-container {
     align-items: center;
     flex-direction: column;
-    gap: 0px;
+    gap: 2rem;
   }
   .posts-container li{
     width: 90%;
   }
   .posts-preview{
     max-width: 180px;
+    height: 140px;
   }
   .posts-preview-wrapper{
     max-width: 180px;
@@ -691,5 +692,30 @@ hr {
   .blog-title {
     font-size: 2.2rem;
     margin-block: 25px 5px;
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .posts-container{
+    gap: 1rem;
+  }
+  .posts-preview-wrapper{
+    max-width: 132px;
+    height: 99px
+  }
+  .posts-preview{
+    height: 99px;
+    max-width: 132px;
+  }
+  .posts-info{
+    gap: 3px;
+    height: 99px;
+  }
+  .tag-container {
+    padding: 2px 6px;
+    font-size: .5rem;
+  }
+  .posts-info p{
+    font-size: .7rem;
   }
 }
