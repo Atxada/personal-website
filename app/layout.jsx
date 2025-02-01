@@ -8,9 +8,6 @@ import Nav from "@components/Nav"
 export const metadata = {
   title: "Reiga",
   description: "Tech art learning",
-  icons: {
-    icon: "/favicon.ico",
-  },
 }
 
 const RootLayout = ({children}) => {
