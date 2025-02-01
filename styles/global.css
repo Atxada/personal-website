@@ -727,4 +727,10 @@ hr {
   .blog-content pre code{ 
     font-size: .85em;
   }
+  .home-v-flex h1{
+    font-size: 1.7em;
+  }
+  .home-v-flex{
+    margin: 10px 20px;
+  }
 }
