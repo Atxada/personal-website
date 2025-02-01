@@ -16,10 +16,10 @@ const Post = ({data, parentSlug}) => {
                 </div>
               </div>
             </Link>
-            <div className="posts-info">
-              <Link className="posts-card-title" href={`/${parentSlug}/${data.slug}`}><h3 className="m-0 text-base font-normal">{data.title}</h3></Link>
+            <div className="posts-info  overflow-hidden">
+              <Link className="posts-card-title  overflow-hidden" href={`/${parentSlug}/${data.slug}`}><h3 className="m-0 text-base font-normal">{data.title}</h3></Link>
               <p>{data.date}</p>
-              <div className="flex gap-1 ">
+              <div className="flex  gap-1 ">
                 {data.tags?.map((tag ,index) => <Tag tag={tag} key={index}/>)}
               </div>
             </div>
