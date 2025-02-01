@@ -3,10 +3,14 @@ import "@styles/global.css" // refer to jsconfig.json > right now it configured 
 
 import Nav from "@components/Nav"
 
+
 // define data with data > in this case we defining what is our web app about
 export const metadata = {
   title: "Reiga",
-  description: "Tech art learning"
+  description: "Tech art learning",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 const RootLayout = ({children}) => {
