@@ -3,7 +3,7 @@ title: 'Script Collection [ UPDATE ]'
 date: "2024"
 category: "projects"
 tags: ["Python", PyQt]
-thumbnail: /images/portofolio/script_collection_thumbnail.png
+thumbnail: /images/portofolio/script_collection_thumbnail.PNG
 alt: "Script collection"
 excerpt: "This is the excerpt"
 ---
