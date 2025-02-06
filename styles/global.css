@@ -471,7 +471,7 @@ hr {
 }
 .blog-content code, .blog-content .code-text{
   background-color: rgba(255,255,255,.15);
-  padding: .25rem;
+  padding: .15rem .25rem;
   border-radius: 3px;
 }
 .blog-content pre code{       /* This will exclude code tag that has pre as a parent, just assume it as codeblock */
@@ -493,8 +493,9 @@ hr {
 .blog-content a {  /* reset certain elemet to initial style */
   color: var(--blue-color);
 }
-.blog-content li {
+.blog-content li, .blog-content ul {
   list-style: inherit;
+  line-height: 1.5em;
 }
 .blog-content  hr {
   border: 1px solid #dfddd8;
