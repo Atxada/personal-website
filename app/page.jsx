@@ -50,7 +50,7 @@ const Home = () => {
                 <div className="flex gap-1 justify-center">
                   <Link className="home-contact-btn" href="https://www.linkedin.com/in/aldo-aldrich-962975220/"><LinkedinIcon /></Link>
                   <Link className="home-contact-btn" href="https://github.com/Atxada"><GithubIcon /></Link>
-                  <Link className="home-contact-btn" href="mailto:atxadacony@gmail.com"><EmailIcon /></Link>
+                  <Link className="home-contact-btn" href="mailto:aldrichaldo7@gmail.com"><EmailIcon /></Link>
                 </div>
               </section>
             </div>
