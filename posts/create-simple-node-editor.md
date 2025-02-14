@@ -10,14 +10,14 @@ excerpt: "This is the excerpt"
 
 ![Node Editor Demo](/images/portofolio/node_editor_demo1.gif "Node Editor Demo")
 
-Recently, I just finished developing [Node Editor GUI](/projects/node-editor) which is meant to be the main UI for my auto-rig. It turns out this GUI was a much bigger project than I had expected it to be. So, in this article, I want to give the reader some insights into how I create the node editor GUI. We won't break down every single element from this application, instead I'm only going to breakdown the method for creating the node graphics. Let's just jump right into it!
+Recently, I just finished developing [Node Editor GUI](/projects/node-editor) which is meant to be the main UI for my auto-rig. It turns out this GUI was a much bigger project than I had expected it to be. So, in this article, I want to give the reader some insights into how I create the node editor GUI. We won't break down every single element from this application, instead I'm only going to break down the method for creating the node graphics. Let's just jump right into it!
 
 > Make sure you installed Python 3+ and PySide6 on your computer to run the application, you can find the full node editor source code [here](https://github.com/Atxada/Node_Editor)
 
 ## Setting up the QGraphicsScene
-To create a viewport inside Qt we will using 2 main class, the [QGraphicsScene](https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/QGraphicsScene.html) and [QGraphicsView](https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/QGraphicsView.html). the QGraphicsScene will serves as a container for all the nodes or other necessary graphics item. At the other hand, QGraphicsView is used for visualizing the contents of a QGraphicsScene in a scrollable viewport.
+To create a viewport inside Qt we will using 2 main class, the [QGraphicsScene](https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/QGraphicsScene.html) and [QGraphicsView](https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/QGraphicsView.html). The QGraphicsScene will serve as a container for all the nodes or other necessary graphics items. On the other hand, QGraphicsView is used for visualizing the contents of a QGraphicsScene in a scrollable viewport.
 
-We will start by creating the QGraphicsScene. By inhereting the QGraphicsScene class, I will create a viewport with a width of 800px and height of 600px. We need to pass the width and height to the <CodeText>setSceneRect</CodeText> function, so it will tell the QGraphicsView how big is our scene.
+We will start by creating the QGraphicsScene. By inheriting  the QGraphicsScene class, I will create a viewport with a width of 800px and height of 600px. We need to pass the width and height to the <CodeText>setSceneRect</CodeText> function, so it will tell the QGraphicsView how big is our scene.
 
 ```py
 class NodeGraphicsScene(QtWidgets.QGraphicsScene):
@@ -31,13 +31,13 @@ class NodeGraphicsScene(QtWidgets.QGraphicsScene):
         self.setSceneRect(-self.width/2, -self.height/2, self.width, self.height)   
 ```
 
-> Notice that inside <CodeText>setSceneRect</CodeText> function, I negating and divided width and height by 2. This is because I want to center the scene rectangle to our viewport.
+> Notice that inside <CodeText>setSceneRect</CodeText> function, I negate and divide width and height by 2. This is because I want to center the scene rectangle to our viewport.
 
-Now let's take a look for our QGraphicsScene! 
+Now let's take a look at our QGraphicsScene! 
 
 ![QGraphicsScene preview](/images/portofolio/QGraphicsScene1.PNG "QGraphicsScene Preview ")
 
-You can scroll around the viewport, but that's pretty much it. Looks boring right? That's why we need to draw some background to make it more appealing. We will draw a grid background with the help of <CodeText>QPen</CodeText> inside of our <CodeText>drawBackground</CodeText> function, but first we need to determined the color for the grid and setup the QPen.
+You can scroll around the viewport, but that's pretty much it. Looks boring right? That's why we need to draw some background to make it more appealing. We will draw a grid background with the help of <CodeText>QPen</CodeText> inside, of our <CodeText>drawBackground</CodeText> function, but first we need to determine the color for the grid and set up the QPen.
 
 ```py
 class NodeGraphicsScene(QtWidgets.QGraphicsScene):
@@ -66,7 +66,7 @@ class NodeGraphicsScene(QtWidgets.QGraphicsScene):
         self.setSceneRect(-self.width/2, -self.height/2, self.width, self.height)
 ```
 
-I created 2 type of QPen, one for the dark grid and the other for light grid to make more variation. For the background color, you can just set it using <CodeText>setSceneRect</CodeText> function by passing the color. Inside the <CodeText>drawBackground</CodeText> function, we will specify how we would like to draw our background. First, let's look at the code snippet below!
+I created 2 types of QPen, one for the dark grid and the other for the light grid to make more variation. For the background color, you can just set it using <CodeText>setSceneRect</CodeText> function by passing the color. Inside the <CodeText>drawBackground</CodeText> function, we will specify how we would like to draw our background. First, let's look at the code snippet below!
 
 ```py
     def drawBackground(self, painter, rect):
@@ -97,12 +97,12 @@ I created 2 type of QPen, one for the dark grid and the other for light grid to 
         painter.drawLines(lines_dark)
 ```
 
-Since we will draw the grid line vertically and horizontally, we need to know the coordinate for each side of the viewport. We are doing this by querying the bounding rectangle (left, right, top, bottom). Then inside the for loop, we are using condition to check if current coordinate has a remainder. I multiply the <CodeText>grid_size</CodeText> with <CodeText>grid_squares</CodeText> to make sure the darker lines is drawn every 4 grid tiles (we specified the <CodeText>grid_size</CodeText> inside <CodeText>\_\_init\_\_</CodeText> function). Finally after appending all the valid line coordinate, we using the painter function called <CodeText>drawLines</CodeText> to draw it inside our scene.
+Since we will draw the grid line vertically and horizontally, we need to know the coordinates for each side of the viewport. We are doing this by querying the bounding rectangle (left, right, top, bottom). Then inside the for loop, we are using a condition to check if the current coordinate has a remainder. I multiply the <CodeText>grid_size</CodeText> with <CodeText>grid_squares</CodeText> to make sure the darker lines are drawn every 4 grid tiles (we specified the <CodeText>grid_size</CodeText> inside <CodeText>\_\_init\_\_</CodeText> function). Finally, after appending all the valid line coordinates, we used the painter function called <CodeText>drawLines</CodeText> to draw it inside our scene.
 
 ![QGraphicsScene grids](/images/portofolio/QGraphicsScene2.PNG "QGraphicsScene with grids")
 
 ## Creating the QGraphicsItem
-We just finished learning about how we can create a simple graphics scene, now we can place some node here. For the node we will using [QGraphicsItem](https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/QGraphicsItem.html) class and inside there we will setup all the necessary configuration to draw our node. Let's look at the code snippet below!
+We just finished learning about how we can create a simple graphics scene, now we can place some nodes here. For the node we will use [QGraphicsItem](https://doc.qt.io/qtforpython-5/PySide2/QtWidgets/QGraphicsItem.html) class and inside there we will set all the necessary configurations to draw our node. Let's look at the code snippet below!
 
 ### Drawing the node
 ```py
@@ -151,9 +151,9 @@ class NodeGraphics(QtWidgets.QGraphicsItem):
         return QtCore.QRectF(0, 0, self.width, self.height).normalized() # Defining Qt' bounding rectangle
 ```
 
-As you can see, I already define all the size, text and color configuration inside each corresponding init function, I seperate it to make it more readable. Notice that there is a <CodeText>boundingRect</CodeText> function. This is a virtual function that we need to specify when we inherit QGraphicsItem. This function will tell the QGraphicsScene about how big  our item is for back-end stuffs.
+As you can see, I already defined all the size, text, and color configurations inside each corresponding init function, I seperated it to make it more readable. Notice that there is a <CodeText>boundingRect</CodeText> function. This is a virtual function that we need to specify when we inherit QGraphicsItem. This function will tell the QGraphicsScene about how big our item is for back-end stuff.
 
-Now we need to draw our node, and that is by overriding <CodeText>paint</CodeText> function. We start by drawing the title segment for our node.
+Now we need to draw our node, and that is by overriding the <CodeText>paint</CodeText> function. We start by drawing the title segment for our node.
 
 ```py
     def paint(self, painter, option, widget):
@@ -181,7 +181,7 @@ Now we need to draw our node, and that is by overriding <CodeText>paint</CodeTex
         painter.drawPath(path_title.simplified())
 ```
 
-By using [QPainterPath](https://doc.qt.io/qtforpython-5/PySide2/QtGui/QPainterPath.html) we can draw and combine different shapes. From the code snippet above, I started by adding a rounded rectangle using <CodeText>addRoundedRect</CodeText> function. This function takes 6 parameter: x, y, width, height, x roundness, and y roundness. This rounded rect is for the header of our node. The other 2 rectangle I draw is use to close the border radius for the bottom side.
+By using [QPainterPath](https://doc.qt.io/qtforpython-5/PySide2/QtGui/QPainterPath.html) we can draw and combine different shapes. From the code snippet above, I started by adding a rounded rectangle using the <CodeText>addRoundedRect</CodeText> function. This function takes 6 parameters: x, y, width, height, x roundness, and y roundness. This rounded rect is for the header of our node. The other 2 rectangles I draw are used to close the border radius for the bottom side.
 
 Next, we need to draw the body for our node. 
 
@@ -245,7 +245,7 @@ Next, we need to draw the body for our node.
         painter.drawPath(path_segment) 
 ```
 
-From the code above, I colored the row inside the node body to make the input/output list more distinguishable (this is inspired by Maya node model). We calculate the row by using a for loop range to determine how much row we have in the node body, also notice inside range I'm using step of 2 so we will draw it for every other row. 
+From the code above, I colored the row inside the node body to make the input/output list more distinguishable (this is inspired by Maya node model). We calculate the row by using a for loop range to determine how many row we have in the node body, also notice inside the range I'm using 2 steps so we will draw it for every other row. 
 
 ```py
         # paint outline element
@@ -257,10 +257,10 @@ From the code above, I colored the row inside the node body to make the input/ou
         painter.drawPath(path_outline.simplified())
 ```
 
-Finally, we draw the outline for our node using rounded rectangle to include the border radius.
+Finally, we draw the node border using a rounded rectangle to include the border radius.
 
 ### Placing the node to the scene
-After drawing the node, we can add it to the scene. For now we will treat it as a debug for preview purposes. Inside the <CodeText>NodeGraphicsScene</CodeText> I added new function called <CodeText>addItemDebug</CodeText> where I created the node and add it to the scene. For more details let's look at code snippet below.
+After drawing the node, we can add it to the scene. For now, we will treat it as a debug for preview purposes. Inside the <CodeText>NodeGraphicsScene</CodeText> I added a new function called <CodeText>addItemDebug</CodeText> where I created the node and added it to the scene. For more details let's look at the code snippet below.
 
 ```py
     def addItemDebug(self, position=QtCore.QPoint(0,0)):
@@ -269,7 +269,7 @@ After drawing the node, we can add it to the scene. For now we will treat it as 
         node.setPos(position)
 ```
 
-Now when you run the program it should show something like this
+Now when you run the program it should show something like this.
 
 ![Node Editor Demo](/images/portofolio/node_editor_demo2.gif "Node Editor Demo")
 
@@ -296,9 +296,9 @@ class NodeContentWidget(QtWidgets.QWidget):
             self.nodeLayout.addWidget(lbl)
 ```
 
-By inhereting the <CodeText>QWidget</CodeText> class, I created a relatively simple content layout. You might need to fiddle with the size or content margins to get the desired result.
+By inheriting the <CodeText>QWidget</CodeText> class, I created a relatively simple content layout. You might need to fiddle with the size or content margins to get the desired result.
 
-Now we can attach the node content to our node body. Inside the <CodeText>NodeGraphics</CodeText> class, simply create the node content and add it to scene. Let's look at the code below!
+Now we can attach the node content to our node body. Inside the <CodeText>NodeGraphics</CodeText> class, simply create the node content and add it to the scene. Let's look at the code below!
 
 ```py
     def initContent(self):
@@ -312,12 +312,12 @@ Now we can attach the node content to our node body. Inside the <CodeText>NodeGr
 
 Inside the <CodeText>initContent</CodeText> after we create the node content object, we need to specify the geometry for this widget. After that, we add the widget to the scene using <CodeText>addWidget</CodeText> function, this will return the <CodeText>QGraphicsProxyWidget</CodeText> that later we parent it to our node's body.
 
-Now run the program again and this is what it should looks like
+Now run the program again and this is what it should look like
 
 ![Node inside the viewport](/images/portofolio/QGraphicsScene3.PNG "Node inside the viewport")
 
 ## Adding the socket
-Let's continue finishing our node by adding some sockets. This is relatively a simple process since we already learned how to draw a graphics item inside Qt application. For sockets, we will continue inheriting <CodeText>QGraphicsItem</CodeText>. You can look at the detail in the code snippet below.
+Let's continue finishing our node by adding some sockets. This is relatively a simple process since we already learned how to draw a graphics item inside a Qt application. For sockets, we will continue inheriting <CodeText>QGraphicsItem</CodeText>. You can look at the details in the code snippet below.
 
 ```py
 class SocketGraphics(QtWidgets.QGraphicsItem):
@@ -347,9 +347,9 @@ class SocketGraphics(QtWidgets.QGraphicsItem):
         self._brush = QtGui.QBrush(self._color_background)
 ```
 
-Again, same process. We begin by defining the size and color for visual representation. The only thing that is different here is, we immediately set the graphics item position once it is initialized. We do this by getting all the information from the node (in this case, node acts as a parent). 
+Again, same process. We begin by defining the size and color for visual representation. The only thing that is different here is, that we immediately set the graphics item position once it is initialized. We do this by getting all the information from the node (in this case, the node acts as a parent). 
 
-We want to arrange our socket in a ordered manner, that's why we are getting the index, position, and amount value from the node. Now before we set the sockets position, let's draw our socket!
+We want to arrange our socket in an ordered manner, that's why we are getting the index, position, and amount value from the node. Now before we set the sockets's position, let's draw our socket!
 
 ```py
     def paint(self, painter, option, widget):
@@ -361,7 +361,7 @@ We want to arrange our socket in a ordered manner, that's why we are getting the
                             2*self.radius)
 ```
 
-It is a more straightforward process, since all we need to do is draw a circle. We don't need to set the socket position, because the node class will take care of that. Also, for every <CodeText>QGraphicsItem</CodeText> we need to set the bounding rect. So let's override the <CodeText>boundingRect</CodeText> virtual function.
+It is a more straightforward process since all we need to do is draw a circle. We don't need to set the socket position, because the node class will take care of that. Also, for every <CodeText>QGraphicsItem</CodeText> we need to set the bounding rect. So let's override the <CodeText>boundingRect</CodeText> virtual function.
 
 ```py
     def boundingRect(self):
@@ -386,13 +386,13 @@ After all of that work, let's finish the socket part by determining the socket p
         for count in range(len(self.outputs)):
             SocketGraphics(node=self, index=count, position=RIGHT, socket_amount=len(self.inputs))
 ```
-> Remember we don't override the <CodeText>\_\_init\_\_</Codetext> function, all the previous content are hidden to simplified the code
+> Remember we don't override the <CodeText>\_\_init\_\_</Codetext> function, all the previous content is hidden to simplify the code
 
 We are using the inputs and outputs attribute to determine how many sockets we are adding. Inside <CodeText>initSockets</CodeText> function, we are passing the count value to the index parameter and inputs/outputs length to the socket amount parameter.
 
 ![Socket preview](/images/portofolio/QGraphicsScene4.PNG "Socket preview")
 
-Up until now, our node editor should looks like the image above. To move and ordered the sockets we will add a new function called <CodeText>getSocketPosition</CodeText> inside of our <CodeText>NodeGraphics</CodeText> class. This function will return the (x, y) coordinate for the correspoding socket
+Up until now, our node editor should look like the image above. To move and order the sockets we will add a new function called <CodeText>getSocketPosition</CodeText> inside of our <CodeText>NodeGraphics</CodeText> class. This function will return the (x, y) coordinate for the corresponding socket
 
 ```py
     def getSocketPosition(self, index, position):
@@ -402,7 +402,7 @@ Up until now, our node editor should looks like the image above. To move and ord
 
 ```
 
-We calculate the Y coordinate by take into account the <CodeText>socket_spacing</CodeText> attribute. For X coordinate it's very simple just attach it at the left side of the node if the sockets is input and vice versa for output. Please don't forget to add two new constant for this function called LEFT (value of 1) and RIGHT (value of 2).
+We calculate the Y coordinate by taking into account the <CodeText>socket_spacing</CodeText> attribute. For X coordinate it's very simple just attach it at the left side of the node if the sockets are input and vice versa for output. Please don't forget to add two new constants for this function called LEFT (value of 1) and RIGHT (value of 2).
 
 ![Ordered socket preview](/images/portofolio/QGraphicsScene5.PNG "Ordered socket preview")
 
@@ -410,7 +410,7 @@ Run the program once more and the result should be similar to the image above.
 
 ## Customize the node class
 
-To close this article, we will create a number of custom node class derived from <CodeText>NodeGraphics</CodeText> class and create a simple context menu to instantly add the node to the scene. Let's start with defining some custom node classes.
+To close this article, we will create several custom node classes derived from <CodeText>NodeGraphics</CodeText> class and create a simple context menu to instantly add the node to the scene. Let's start with defining some custom node classes.
 
 ```py
 class addNode(NodeGraphics):
@@ -430,9 +430,9 @@ class divNode(NodeGraphics):
         super().__init__(graphics_scene, inputs, outputs, title, parent)
 ```
 
-> We will pretend that we are developing a calculator application, so we will add the 4 main operator: add, subtract, multiply, and divide.
+> We will pretend that we are developing a calculator application, so we will add the 4 main operators: add, subtract, multiply, and divide.
 
-We can play around with the inputs and outputs parameter to define the sockets structure, but I will leave it up to you. Now that we already have all the custom node, we can add it into our menu. Inside the main window class, define the view's <CodeText>contextMenuEvent</CodeText> with new function called <CodeText>contextMenuHandler</CodeText>
+We can play around with the input and output parameters to define the socket structure, but I will leave it up to you. Now that we already have all the custom nodes, we can add them to our menu. Inside the main window class, define the view's <CodeText>contextMenuEvent</CodeText> with a new function called <CodeText>contextMenuHandler</CodeText>
 
 ```py
 class MainWindow(QtWidgets.QWidget):
@@ -461,7 +461,7 @@ class MainWindow(QtWidgets.QWidget):
             self.scene.addItemToScene(divNode, position)
 ```
 
-To add the menu options, we simply using <CodeText>addAction</CodeText> function and passing the icon (you can pass nothing and it's still works). Next, we want our node to be positioned according to the mouse position. To do this, I query the <CodeText>event.pos</CodeText> and map it to the scene. 
+To add the menu options, we simply use <CodeText>addAction</CodeText> function and pass the icon (you can pass nothing and it still works). Next, we want our node to be positioned according to the mouse position. To do this, I query the <CodeText>event.pos</CodeText> and map it to the scene. 
 
 We already have the mouse position value, now we need to pass it to the scene. Inside the <CodeText>NodeGraphicsScene</CodeText> class let's add a function called <CodeText>addItemToScene</CodeText> that will handle both node creation and positioning. 
 
@@ -472,12 +472,12 @@ We already have the mouse position value, now we need to pass it to the scene. I
         node.setPos(position)
 ```
 
-> Because right now we have a much better way to add a node into the scene, we can get rid of <CodeText>addItemDebug</CodeText> function we created for debugging. 
+> Because right now we have a much better way to add a node into the scene, we can get rid of the <CodeText>addItemDebug</CodeText> function we created for debugging. 
 
-Finally Let's run our program for the last time!
+Finally, Let's run our program for the last time!
 
 ![Final preview node editor](/images/portofolio/node_editor_demo3.gif "Final preview node editor")
 
-And it's done 🎉🎉🎉. The context menu containing all of our custom node, and when we click on it the corresponding node will be placed right on our mouse position. I also add a small icon at the left of the node's header, but it's purely for cosmetic.
+And it's done 🎉🎉🎉. The context menu contains all of our custom nodes, and when we click on it the corresponding node will be placed right on our mouse position. I also added a small icon at the left of the node's header, but it's purely cosmetic.
 
-That is all for this article, thank you so much for make it to the end of this article. We just learned to create a simple node editor GUI without any back-end attached to it. If you want to see my complete node editor application please visit my Github Repository [here](https://github.com/Atxada/Node_Editor). I hope you find this article helpful and have a good day!
+That is all for this article, thank you so much for making it to the end of this article. We just learned to create a simple node editor GUI without any back-end attached to it. If you want to see my complete node editor application please visit my Github Repository [here](https://github.com/Atxada/Node_Editor). I hope you find this article helpful and have a good day!
