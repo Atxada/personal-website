@@ -12,6 +12,8 @@ excerpt: "This is the excerpt"
 
 ![Node Editor UI](https://github.com/Atxada/Node_Editor/blob/main/docs/Node%20Editor%20UI.PNG?raw=true "Node Editor UI")
 
+> For more information about how to use and source code, please check my [github](https://github.com/Atxada/Node_Editor).
+
 ## Description
 
 The initial goal of this project is to create an auto-rig for Maya and get a better understanding of the Qt Framework to create a more complex GUI.
@@ -44,5 +46,3 @@ https://www.blenderfreak.com/tutorials/node-editor-tutorial-series/
 ## Links
 - [Documentation](https://zeno-node-editor.readthedocs.io/en/latest/)
 - [Linkedin](https://www.linkedin.com/in/aldo-aldrich-962975220/)
-
-For more information about how to use and source code, please check my [github](https://github.com/Atxada/Node_Editor).
