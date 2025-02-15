@@ -2,7 +2,7 @@
 title: 'Create a Simple Node GUI'
 date: "July 1, 2024"
 category: "articles"
-tags: ["Python", "PyQt"]
+tags: ["Python", "PyQt", "Application"]
 thumbnail: /images/portofolio/node_editor_thumbnail2.PNG
 alt: "Node GUI"
 excerpt: "This is the excerpt"
