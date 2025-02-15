@@ -12,8 +12,6 @@ excerpt: "This is the excerpt"
 
 ![Node Editor UI](https://github.com/Atxada/Node_Editor/blob/main/docs/Node%20Editor%20UI.PNG?raw=true "Node Editor UI")
 
-> For more information about how to use and source code, please check my [github](https://github.com/Atxada/Node_Editor).
-
 ## Description
 
 The initial goal of this project is to create an auto-rig for Maya and get a better understanding of the Qt Framework to create a more complex GUI.
@@ -28,6 +26,8 @@ Also, **big thanks to Pavel Křupala** for the node editor GUI tutorial he provi
 
 The resource link:
 https://www.blenderfreak.com/tutorials/node-editor-tutorial-series/
+
+> For more information about how to use and source code, please check my [github](https://github.com/Atxada/Node_Editor).
 
 ## Features
 - full framework for creating customizable graphs, nodes, sockets, and edges
