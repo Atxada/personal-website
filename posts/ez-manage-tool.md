@@ -25,29 +25,29 @@ I might or might not update this application in the future, even though this app
 - ### Customizable project and asset
   ![1 project asset customization](https://github.com/user-attachments/assets/627d7f5f-bd96-4f46-a70a-cc8831570537)
 
-    > Differentiate between projects and assets with unique names, categories, and icons.
+  Differentiate between projects and assets with unique names, categories, and icons.
 
 - ### Intuitive UI navigation
   ![2 intuitive UI navigation](https://github.com/user-attachments/assets/56534240-5089-4754-a10a-8041fbb8ad43)
 
-    > With a deliberate design to keep menus simple and uncluttered, browsing assets is much more efficient.
+  With a deliberate design to keep menus simple and uncluttered, browsing assets is much more efficient.
 
 - ### Assign and monitor deadline
   ![3 assign and monitor deadline](https://github.com/user-attachments/assets/132a9c27-ccb6-408f-8308-37deb11256f5)
 
-    > Set a deadline for specific assets, allowing users to see all assignments corresponding to the assigned date.
-    > Calendar editor will show 3 colors depending on the active assignment or active todo: orange (active assignment), blue (active todo), and green (finished assignment or todo). 
-    > Asset has 3 statuses: unchecked, checked and verified. If an asset is verified, the assignment is considered done.
+  Set a deadline for specific assets, allowing users to see all assignments corresponding to the assigned date.
+  Calendar editor will show 3 colors depending on the active assignment or active todo: orange (active assignment), blue (active todo), and green (finished assignment or todo). 
+  Asset has 3 statuses: unchecked, checked and verified. If an asset is verified, the assignment is considered done.
 
 - ### Transfer project across all users
 
-    > Using standard JSON format, the project can be shared with other users by importing the file
+  Using standard JSON format, the project can be shared with other users by importing the file
 
 - ### (experimental) Take a screenshot
 
 - ### (experimental) Automated file version control
 
-    > Updating new asset versions will automatically manage the older version in File Explorer.
+  Updating new asset versions will automatically manage the older version in File Explorer.
 
 - ### And many more useful features!
 
