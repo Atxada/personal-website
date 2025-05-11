@@ -188,6 +188,10 @@ hr {
 .article-excerpt {
   margin: 0;
 }
+.featured-works-section {
+  background-image: radial-gradient(#bbb 1px, transparent 1px);
+  background-size: 20px 20px; /* Space between dots */
+}
 .selected-project {
   display: flex;
   gap: 1.5rem;
@@ -662,6 +666,12 @@ hr {
 }
 
 @media screen and (max-width: 599px) {
+  .navigation-menu a{
+    font-size: 1em;
+  }
+  .home-hero{
+    padding-block: 25px;
+  }
   .home-h-flex{
     max-width: 330px;
   }
@@ -682,7 +692,6 @@ hr {
   .article-card {
     width: 300px;
   }
-
   .blog-title{
     font-size: 1.8em;
   }
@@ -694,5 +703,8 @@ hr {
   }
   .home-v-flex h1{
     font-size: 1.7em;
+  }
+  .home-div h2{
+    font-size: 1.8em;
   }
 }

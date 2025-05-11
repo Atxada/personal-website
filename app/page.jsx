@@ -16,7 +16,7 @@ const Home = () => {
   
 
   return (
-      <div>
+      <div className="home-div">
         <section className="home-hero">
           <div className="home-h-flex">
             <div className="home-v-flex">
@@ -34,7 +34,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="bg-[#e7e7e7] text-[#e96d30] pt-5 pb-14 flex gap-7 flex-col justify-center items-center">
+        <section className="featured-works-section bg-[#e7e7e7] text-[#e96d30] pt-5 pb-14 flex gap-7 flex-col justify-center items-center">
             <h2 className="text-center text-4xl font-mono mb-0">FEATURED WORKS</h2>
             <ul className="selected-project">
               {featuredProjects.map((post, index) => (
