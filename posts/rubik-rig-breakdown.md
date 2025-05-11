@@ -1,11 +1,11 @@
 --- 
 title: "Rubik's Cube Rig Using Custom node"
-date: "October 25, 2024"
+date: "January 31, 2025"
 category: "articles"
 tags: ["MayaAPI", "Python", "Rig"]
 thumbnail: "https://images.unsplash.com/photo-1640958899763-9b5b4d9e4b6c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 alt: "Rubik's cube rig"
-excerpt: "This is the excerpt"
+excerpt: "This project took on the challenge of building a fully functional Rubik's cube rig with undo/redo options and support for animation keyframes. I chose to develop a custom Rubik node, using the project as an opportunity to deepen my knowledge of Maya's API modules and matrix operations."
 ---
 
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7265333089051041792?compact=1" height="399" width="700" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>

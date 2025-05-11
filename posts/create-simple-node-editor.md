@@ -5,7 +5,7 @@ category: "articles"
 tags: ["Python", "PyQt", "Application"]
 thumbnail: /images/portofolio/node_editor_thumbnail2.PNG
 alt: "Node GUI"
-excerpt: "This is the excerpt"
+excerpt: "In this short tutorial, I will explain the process of creating a Node GUI using Qt as the framework. This project is a continuation of my custom node editor GUI, which I originally developed for Autodesk Maya."
 ---
 
 ![Node Editor Demo](/images/portofolio/node_editor_demo1.gif "Node Editor Demo")

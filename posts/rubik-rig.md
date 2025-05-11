@@ -6,6 +6,7 @@ tags: ["Rig", "MayaAPI", "Python"]
 thumbnail: /images/portofolio/rubik_thumbnail.PNG
 alt: "rubik rig"
 excerpt: "This is the excerpt"
+redirect: "https://80.lv/articles/check-out-this-animation-ready-rubik-s-cube-maya-rig/"
 ---
 
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7265333089051041792?compact=1" height="399" width="700" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>

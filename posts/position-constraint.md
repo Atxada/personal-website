@@ -1,11 +1,11 @@
 --- 
 title: 'Creating Position Based Constraint'
-date: "March 22, 2024"
+date: "March 31, 2024"
 category: "articles"
 tags: ["Python"]
 thumbnail: /images/portofolio/pos_constraint_thumbnail.PNG
 alt: "Position Constraint Tool"
-excerpt: "This is the excerpt"
+excerpt: "Have you ever wanted to constrain a set of parent objects to a set of child objects based on their positions? This approach is much more intuitive and can save a lot of time, especially when dealing with hundreds of objects. By applying the principles of Python dictionaries and vector data, we’ll explore how to create a simple position constraint. As an additional step, we'll also look at how to wrap the code in a basic UI."
 ---
 
 ## Background

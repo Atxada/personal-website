@@ -1,0 +1,4 @@
+-hero image/video showreel + didampingi text yg professional (ada tagline contoh: solving technical barrier of 3d production dan ada short description) dan mainin komposisinya + add bbrp button navigasi
+-navbar home pake logo, klo gada pake placeholder dlu aja
+-copyright di bottom kyk jeanne coritama
+-404 yang kek checkpoint gitu ada gif bonfire
