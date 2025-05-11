@@ -23,7 +23,7 @@ const Home = () => {
               <h1 className="m-0">Solving <span>Technical Barrier</span> of 3D Production</h1>
               <p className="text-[#cec096] leading-6 m-0"> 
                 Hi! My name is <strong>Aldo Aldrich</strong>, I'm a <strong>Technical artist</strong> who specializes 
-                in <strong>Rigging</strong> with more than 3 years of experience. Beside rigging, I also
+                in <strong>Rigging</strong> with more than 4 years of experience. Beside rigging, I also
                 create a custom tools and help solving technical problem in the studio.
               </p>
               <Link target="_blank" href="files/CV.pdf" className="showreel-btn"> <DocumentIcon /> 2025 Resume </Link>
